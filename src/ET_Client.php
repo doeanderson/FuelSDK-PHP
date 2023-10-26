@@ -386,10 +386,10 @@ class ET_Client extends SoapClient
             $payload->grant_type = 'client_credentials';
 		}
 
-		if (!empty(trim($this->accountId))){
+		if (!empty(trim($this->accountId ?? ''))){
             $payload->account_id = $this->accountId;
 		}
-		if (!empty(trim($this->scope))){
+		if (!empty(trim($this->scope ?? ''))){
             $payload->scope = $this->scope;
 		}
 
@@ -519,7 +519,7 @@ class ET_Client extends SoapClient
 	 * @param integer $one_way Future use
 	 * @return string Soap web service request result
 	 */
-	function __doRequest($request, $location, $saction, $version, $one_way = 0)
+	function __doRequest($request, $location, $saction, $version, $one_way = false): ?string
 	{
 		$doc = new DOMDocument();
 		$doc->loadXML($request);
