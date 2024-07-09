@@ -13,5 +13,6 @@ objsamples/sample-testing.php
 .vscode
 phpunit-*.phar
 composer.phar
+composer.lock
 .idea
 .cache
